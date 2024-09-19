@@ -4,8 +4,8 @@ const bodyParser = require("body-parser");
 const errorMiddleware = require('./middleware/error');
 
 const indexRouter = require('./routes/index');
-const todoApiRouter = require('./routes/api/todo');
-const todoRouter = require('./routes/todo');
+const bookApiRouter = require('./routes/api/book');
+const bookRouter = require('./routes/book');
 
 const app = express();
 
@@ -15,8 +15,8 @@ app.set("view engine", "ejs");
 
 app.use('/', indexRouter);
 app.use('/test', indexRouter);
-app.use('/todo', todoRouter);
-app.use('/api/todo', todoApiRouter);
+app.use('/book', bookRouter);
+app.use('/api/book', bookApiRouter);
 
 app.use(errorMiddleware);
 

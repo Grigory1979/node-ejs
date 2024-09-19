@@ -1,6 +1,6 @@
 const uidGenerator = require('node-unique-id-generator');
 
-class Todo {
+class Book {
     constructor(title = "", desc = "", id = uidGenerator.generateUniqueId()) {
         this.title = title;
         this.desc = desc;
@@ -8,4 +8,4 @@ class Todo {
     }
 }
 
-module.exports = Todo;
+module.exports = Book;

@@ -1,31 +1,31 @@
 const express = require('express');
 const router = express.Router();
-const {Todo} = require('../../models');
+const {Book} = require('../../models');
 
 const stor = {
-    todo: [],
+    book: [],
 };
 
 [1, 2, 3].map(el => {
-    const newTodo = new Todo(`todo ${el}`, `desc todo ${el}`);
-    stor.todo.push(newTodo);
+    const newBook = new Book(`book ${el}`, `desc book ${el}`);
+    stor.book.push(newBook);
 });
 
 router.get('/', (req, res) => {
-    const {todo} = stor;
-    res.json(todo);
+    const {book} = stor;
+    res.json(book);
 });
 
 router.get('/:id', (req, res) => {
-    const {todo} = stor;
+    const {book} = stor;
     const {id} = req.params;
-    const idx = todo.findIndex(el => el.id === id);
+    const idx = book.findIndex(el => el.id === id);
 
     if (idx !== -1) {
-        res.json(todo[idx]);
+        res.json(book[idx]);
     } else {
         res.status(404);
-        res.json("todo | not found");
+        res.json("book | not found");
     }
 });
 
